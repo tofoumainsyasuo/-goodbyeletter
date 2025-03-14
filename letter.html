@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listen or Read My Letter</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <!-- Background -->
+    <div class="background"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Toggle Button for Background Music Player -->
+        <button id="toggleMusicPlayer">Show Music Player</button>
+
+        <!-- Toggle Buttons -->
+        <div class="toggle-buttons">
+            <button id="listenBtn">Listen to My Letter</button>
+            <button id="readBtn" class="active">Read My Letter</button>
+        </div>
+
+        <!-- Audio Player for Narration -->
+        <div id="listenSection" class="section hidden">
+            <div class="audio-player">
+                <button id="playPauseBtn">
+                    <svg id="playIcon" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M8 5v14l11-7z"/>
+                    </svg>
+                    <svg id="pauseIcon" class="icon hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                    </svg>
+                </button>
+                <p class="song-title">Letter Narration</p>
+                <input type="range" id="progressBar" value="0">
+                <audio id="narrationAudio" src="letter-narration.mp3"></audio>
+            </div>
+        </div>
+
+        <!-- Letter Text Section with Background Music -->
+        <div id="readSection" class="section">
+            <div class="letter">
+                <p class="fade-in">Hey aya, I've had this way of contacting you this whole time but kept myself from using it, since it would be my last surefire way of doing so and knowing you got my message, unless necessary, which isn't the case now, but i want to get rid of it sooner rather than later, and today would be a great occasion, since i also get to wish you a happy birthday, i hope all is going well for you, and hope it stays the case.</p>
+
+                <p class="fade-in">i have a lot to say, and I'd understand if you wish to go no further than here in reading this message, my point got through,i came here to wish you a happy birthday and i did, but this message would also be my last before giving you the peace of mind you're seeking, out of respect for your decision, out of love, cause mistakes have been done when we were dating, but i did love you, and you were never just a rebound, i wasn't over my ex completely yet when we started dating, that much is true, but what's more true is my feelings for you at the time, from the very start i had fallen for you, even before we had started dating,i still remember vividly the joy i had felt on the night you confessed,and the relief from knowing i wouldn't have to burry my feelings for you any longer.</p>
+                
+                <p class="fade-in">But I'd see why you refused to believe so,and i understand there's no changing your mind,and no point in doing so either cause that wasn't my gravest mistake, what was is the pressure i put on you by living for you, that's a pressure no one ever deserves to deal with, and one that led us to the unfavorable ending our story had.</p>
+                
+                <p class="fade-in">Although i hope that isn't really how it ends, I'll understand if it is, as long as joy reaches you, I'm fine with me not being it's bringer, but if not, then know I'll wait for you.</p>
+                
+                <p class="fade-in">I'm not saying that to put pressure on you, I'm saying it to let you know that no matter how rough the road, how dark the nights, or how heavy the weight on your shoulders is, someone out there cares for you, and the only way i can show said care is through prayers that i hope reach you.</p>
+                
+                <p class="fade-in">I've come to terms with the fact I'll never fully be over you, i never was these last 5 years and I've always sought pieces of you in other people , and have always kept an eye on you from a distance in a way or another,i hope i can stop that now cause I don't wanna be the weird ex that always stalks you, and I'll try my best to do so no matter how hard it is.</p>
+                
+                <p class="fade-in">But that aside, I'll still cherish the memories we had, and despite having disposed most of them through despair and weakness, I'll keep whatever reminders i have left of you as close to my heart as you once were.</p>
+                
+                <p class="fade-in">I think I've said more than enough and although i have way too much more to say, i think making you read through all this is already too much to ask for, i wish you the best aya, you know where to find me if I'm ever needed, no matter the time, no matter the circumstances, no matter the place, you'll find me waiting.</p>
+                
+                <p class="fade-in">goodbye, and be well aya, this may be my last message but not my last wish for your happiness.</p>
+                
+                <p class="fade-in">Till death do us apart,cause despite everything, we never really were.</p>
+                
+                <p class="fade-in">:&#41;</p>
+
+                <p class="signature">Yours always,<br>zaki</p>
+            </div>
+            <!-- Background Music Player -->
+            <div id="backgroundMusicPlayer" class="background-music">
+                <button id="bgMusicToggle">
+                    <svg id="bgPlayIcon" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M8 5v14l11-7z"/>
+                    </svg>
+                    <svg id="bgPauseIcon" class="icon hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                    </svg>
+                </button>
+                <p class="song-title">Background Music</p>
+                <audio id="backgroundMusic" src="Mitski - My Love Mine All Mine (Official Lyric Video).mp3" loop></audio>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

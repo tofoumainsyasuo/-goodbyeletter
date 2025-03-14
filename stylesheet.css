@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    overflow: hidden;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('bg.webp');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.6);
+    z-index: -1;
+}
+
+
+/* Toggle Buttons */
+.toggle-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.toggle-buttons button {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.toggle-buttons button.active {
+    background: #ff6b6b;
+    transform: scale(1.1);
+}
+
+.toggle-buttons button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Audio Player */
+.audio-player, .background-music {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.song-title {
+    font-size: 14px;
+    margin-top: 10px;
+    color: #a0c4ff;
+}
+
+#playPauseBtn, #bgMusicToggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    fill: white;
+}
+
+.hidden {
+    display: none;
+}
+
+#progressBar {
+    width: 100%;
+    margin-top: 10px;
+    accent-color: #a0c4ff;
+}
+
+/* Letter Text Section */
+/* Make the letter section scrollable */
+.letter {
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    max-height: 60vh; /* Adjust this value as needed */
+    overflow-y: auto; /* Enable vertical scrolling */
+    margin-bottom: 20px;
+}
+
+/* Ensure the container doesn't overflow */
+.container {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 800px;
+    width: 90%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    max-height: 90vh; /* Limit container height */
+    overflow: hidden; /* Prevent container from scrolling */
+    display: flex;
+    flex-direction: column;
+}
+
+.letter p {
+    margin-bottom: 15px;
+}
+
+/* Section Visibility */
+.section {
+    display: none;
+}
+
+.section.visible {
+    display: block;
+}
+html {
+    scroll-behavior: smooth;
+}
+/* Custom Scrollbar */
+.letter::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar */
+}
+
+.letter::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1); /* Track color */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.letter::-webkit-scrollbar-thumb {
+    background: #ff6b6b; /* Thumb color */
+    border-radius: 10px; /* Rounded corners */
+    border: 2px solid rgba(255, 255, 255, 0.2); /* Optional border */
+}
+
+.letter::-webkit-scrollbar-thumb:hover {
+    background: #ff4c4c; /* Thumb color on hover */
+}
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('bg.webp');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.6);
+    z-index: -1;
+    will-change: transform; /* Optimize for animations */
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+}
+/* Toggle Button for Background Music Player */
+#toggleMusicPlayer {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+#toggleMusicPlayer:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Background Music Player */
+.background-music {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.background-music.hidden {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+@media (max-width: 768px) {
+    .container {
+        padding: 20px; /* Reduce padding for smaller screens */
+    }
+
+    .letter {
+        max-height: 50vh; /* Adjust height for smaller screens */
+    }
+
+    #toggleMusicPlayer {
+        font-size: 14px; /* Smaller font for smaller screens */
+        padding: 8px 16px;
+    }
+}
+.signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 24px;
+    color: #a0c4ff ;
+    margin-top: 20px;
+}
