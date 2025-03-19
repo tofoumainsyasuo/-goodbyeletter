@@ -126,6 +126,7 @@ body {
 /* Add space between paragraphs */
 .letter p {
     margin-bottom: 25px !important; /* Force the margin */
+    line-height: 1.8;
 }
 
 /* Section Visibility */
