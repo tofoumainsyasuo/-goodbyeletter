@@ -123,8 +123,9 @@ body {
     max-height: 60vh;
     overflow-y: auto;
     margin-bottom: 20px;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 1); /* Ensure full opacity */
 }
+
 
 /* Add space between paragraphs */
 .letter p {
