@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600&display=swap');
+
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;}
 
 * {
     margin: 0;
@@ -16,32 +21,21 @@ body {
     min-height: 100vh;
     text-align: center;
     overflow: hidden;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-image: url('bg.webp');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
     filter: brightness(0.6);
+    z-index: -1;
 }
 
-.container {
-    padding: 30px;
-    border-radius: 12px;
-    max-width: 800px;
-    width: 90%;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-    margin: 20px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    border: 2px solid rgba(160, 196, 255, 0.5); /* Light border for contrast */
-    box-shadow: 0 0 10px rgba(160, 196, 255, 0.8); /* Glow effect */
-    position: relative;
-    z-index: 1;
-    background: rgba(0, 0, 0, 0.85); /* Less transparent to avoid dimming text */
-    color: rgba(255, 255, 255, 1); /* Full white text */
-}
-
-}
 
 /* Toggle Buttons */
 .toggle-buttons {
@@ -113,6 +107,7 @@ body {
 }
 
 /* Letter Text Section */
+/* Make the letter section scrollable */
 .letter {
     font-size: 16px;
     line-height: 1.6;
@@ -120,17 +115,28 @@ body {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    max-height: 60vh;
-    overflow-y: auto;
+    max-height: 60vh; /* Adjust this value as needed */
+    overflow-y: auto; /* Enable vertical scrolling */
     margin-bottom: 20px;
-    color: rgba(255, 255, 255, 1); /* Ensure full opacity */
 }
 
+/* Ensure the container doesn't overflow */
+.container {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 800px;
+    width: 90%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    max-height: 90vh; /* Limit container height */
+    overflow: hidden; /* Prevent container from scrolling */
+    display: flex;
+    flex-direction: column;
+}
 
-/* Add space between paragraphs */
 .letter p {
-    margin-bottom: 25px !important; /* Force the margin */
-    line-height: 1.8;
+    margin-bottom: 15px;
 }
 
 /* Section Visibility */
@@ -141,27 +147,46 @@ body {
 .section.visible {
     display: block;
 }
-
+html {
+    scroll-behavior: smooth;
+}
 /* Custom Scrollbar */
 .letter::-webkit-scrollbar {
-    width: 10px;
+    width: 10px; /* Width of the scrollbar */
 }
 
 .letter::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1); /* Track color */
+    border-radius: 10px; /* Rounded corners */
 }
 
 .letter::-webkit-scrollbar-thumb {
-    background: #ff6b6b;
-    border-radius: 10px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: #ff6b6b; /* Thumb color */
+    border-radius: 10px; /* Rounded corners */
+    border: 2px solid rgba(255, 255, 255, 0.2); /* Optional border */
 }
 
 .letter::-webkit-scrollbar-thumb:hover {
-    background: #ff4c4c;
+    background: #ff4c4c; /* Thumb color on hover */
+}
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('bg.webp');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.6);
+    z-index: -1;
+    will-change: transform; /* Optimize for animations */
 }
 
+.container {
+    position: relative;
+    z-index: 1;
+}
 /* Toggle Button for Background Music Player */
 #toggleMusicPlayer {
     background: rgba(255, 255, 255, 0.1);
@@ -199,31 +224,26 @@ body {
     margin: 0;
     overflow: hidden;
 }
-
-/* Responsive Design */
 @media (max-width: 768px) {
     .container {
-        padding: 20px;
+        padding: 20px; /* Reduce padding for smaller screens */
     }
 
     .letter {
-        max-height: 50vh;
+        max-height: 50vh; /* Adjust height for smaller screens */
     }
 
     #toggleMusicPlayer {
-        font-size: 14px;
+        font-size: 14px; /* Smaller font for smaller screens */
         padding: 8px 16px;
     }
 }
-
-/* Signature */
 .signature {
     font-family: 'Dancing Script', cursive;
     font-size: 24px;
-    color: #a0c4ff;
+    color: #a0c4ff ;
     margin-top: 20px;
 }
-
 /* PS Line (Fixed at the Bottom) */
 .ps-line {
     position: fixed;
