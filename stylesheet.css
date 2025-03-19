@@ -24,7 +24,7 @@ body {
 }
 
 .container {
-    background: rgba(0, 0, 0, 0.85); /* Darker and more opaque background */
+    background: rgba(0, 0, 0, 0.7); /* Darker and more opaque background */
     padding: 30px;
     border-radius: 12px;
     max-width: 800px;
