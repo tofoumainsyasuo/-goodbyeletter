@@ -20,10 +20,7 @@ readBtn.addEventListener("click", () => {
     listenSection.classList.remove("visible");
     readBtn.classList.add("active");
     listenBtn.classList.remove("active");
-    // Pause narration audio when switching to read section
-    narrationAudio.pause();
-    playIcon.classList.remove("hidden");
-    pauseIcon.classList.add("hidden");
+    // Do NOT pause narration audio when switching to read section
 });
 
 // Narration Audio Player
