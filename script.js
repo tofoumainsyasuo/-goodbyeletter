@@ -10,7 +10,7 @@ listenBtn.addEventListener("click", () => {
     listenBtn.classList.add("active");
     readBtn.classList.remove("active");
     // Pause background music when switching to listen section
-    backgroundMusic.pause();
+    pauseAudio(); // Use the new Web Audio API pause function
     bgPlayIcon.classList.remove("hidden");
     bgPauseIcon.classList.add("hidden");
 });
@@ -53,22 +53,63 @@ progressBar.addEventListener("input", () => {
     narrationAudio.currentTime = (progressBar.value / 100) * narrationAudio.duration;
 });
 
-// Background Music Player
-const backgroundMusic = document.getElementById("backgroundMusic");
+// Web Audio API for Background Music
+let audioContext;
+let source;
+let audioBuffer;
+
+async function setupAudio() {
+    // Create an AudioContext
+    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+    // Fetch the audio file
+    const response = await fetch('Mitski - My Love Mine All Mine (Official Lyric Video).mp3');
+    const arrayBuffer = await response.arrayBuffer();
+
+    // Decode the audio data
+    audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+}
+
+function playAudio() {
+    if (audioContext.state === 'suspended') {
+        audioContext.resume(); // Resume the audio context if suspended
+    }
+
+    // Create a new audio source
+    source = audioContext.createBufferSource();
+    source.buffer = audioBuffer;
+    source.loop = true; // Loop the audio
+    source.connect(audioContext.destination);
+    source.start(0); // Start playing immediately
+}
+
+function pauseAudio() {
+    if (source) {
+        source.stop(); // Stop the audio
+    }
+}
+
+// Initialize audio
+setupAudio();
+
+// Background Music Player Toggle
 const bgMusicToggle = document.getElementById("bgMusicToggle");
 const bgPlayIcon = document.getElementById("bgPlayIcon");
 const bgPauseIcon = document.getElementById("bgPauseIcon");
 
+let isPlaying = false;
+
 bgMusicToggle.addEventListener("click", () => {
-    if (backgroundMusic.paused) {
-        backgroundMusic.play();
-        bgPlayIcon.classList.add("hidden");
-        bgPauseIcon.classList.remove("hidden");
-    } else {
-        backgroundMusic.pause();
+    if (isPlaying) {
+        pauseAudio();
         bgPlayIcon.classList.remove("hidden");
         bgPauseIcon.classList.add("hidden");
+    } else {
+        playAudio();
+        bgPlayIcon.classList.add("hidden");
+        bgPauseIcon.classList.remove("hidden");
     }
+    isPlaying = !isPlaying;
 });
 
 // Show Read Section by Default
