@@ -120,6 +120,7 @@ body {
     max-height: 60vh;
     overflow-y: auto;
     margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 /* Add space between paragraphs */
