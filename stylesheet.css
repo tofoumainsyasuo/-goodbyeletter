@@ -23,8 +23,9 @@ body {
     filter: brightness(0.6);
 }
 
+/* Container */
 .container {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.6); /* Dark semi-transparent background */
     padding: 30px;
     border-radius: 12px;
     max-width: 800px;
@@ -36,6 +37,8 @@ body {
     flex-direction: column;
     border: 2px solid rgba(160, 196, 255, 0.5);
     box-shadow: 0 0 10px rgba(160, 196, 255, 0.8);
+    position: relative; /* Ensure it stays above the background */
+    z-index: 1; /* Ensure it stays above the background */
 }
 
 /* Toggle Buttons */
@@ -231,9 +234,15 @@ body {
     width: 90%; /* Adjust width for smaller screens */
     max-width: 600px; /* Limit width for larger screens */
     z-index: 1000; /* Ensure it's above other content */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Optional shadow */
 }
 
-/* Optional: Add a subtle shadow */
-.ps-line {
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+/* Adjustments for Mobile Screens */
+@media (max-width: 768px) {
+    .ps-line {
+        bottom: 10px; /* Move slightly higher on mobile */
+        width: 95%; /* Increase width for smaller screens */
+        font-size: 12px; /* Smaller font size for mobile */
+        padding: 8px 16px; /* Adjust padding for mobile */
+    }
 }
